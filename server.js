@@ -18,7 +18,7 @@ const mqttClient = mqtt.connect(MQTT_URL, {
 
 mqttClient.on('connect', () => {
   console.log('✅ MQTT connected');
-  mqttClient.subscribe('#');
+  mqttClient.subscribe('device/#');
 });
 
 /* ========= HTTP ========= */
@@ -73,6 +73,7 @@ const PORT = process.env.PORT || 10000;
 server.listen(PORT, () => {
   console.log('🚀 Server listening on', PORT);
 });
+
 
 
 
