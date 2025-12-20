@@ -12,7 +12,7 @@ const mqttClient = mqtt.connect(MQTT_URL, {
   username: 'keven',
   password: 'ck12345678',
   clientId: 'node_bridge_' + Math.random().toString(16).slice(2),
-  clean: false
+  clean: true
 });
 
 
@@ -73,5 +73,6 @@ const PORT = process.env.PORT || 10000;
 server.listen(PORT, () => {
   console.log('🚀 Server listening on', PORT);
 });
+
 
 
