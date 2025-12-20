@@ -11,13 +11,14 @@ const MQTT_URL = 'mqtts://ac6ca910.ala.cn-hangzhou.emqxsl.cn:8883';
 const mqttClient = mqtt.connect(MQTT_URL, {
   username: 'keven',
   password: 'ck12345678',
-  clientId: 'node_bridge_' + Math.random().toString(16).slice(2),
-  clean: true
+  clientId: 'node_bridge_main',
+  clean: false
 });
+
 
 mqttClient.on('connect', () => {
   console.log('✅ MQTT connected');
-  mqttClient.subscribe('device/+/state');
+  mqttClient.subscribe('#');
 });
 
 /* ========= HTTP ========= */
@@ -72,3 +73,4 @@ const PORT = process.env.PORT || 10000;
 server.listen(PORT, () => {
   console.log('🚀 Server listening on', PORT);
 });
+
